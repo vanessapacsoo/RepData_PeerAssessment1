@@ -37,6 +37,9 @@ data_activity$date <- as.Date(data_activity$date)
 ## What is mean total number of steps taken per day?
 
 ``` r
+<<<<<<< HEAD
+total_steps <- aggregate(steps ~ date, data = data_activity, sum, na.rm = TRUE)
+=======
 library(dplyr)
 ```
 
@@ -62,12 +65,17 @@ library(dplyr)
 total_steps <- data_activity %>%
   group_by(date) %>%
   summarise(sum_steps = sum(steps, na.rm = TRUE))
+>>>>>>> 2b90d691ce4b3e93fe45c5ff999cfda317769307
 ```
 
 
 ``` r
 # Histogram of the total number of steps taken each day
+<<<<<<< HEAD
+hist(total_steps$steps, breaks = 20, 
+=======
 hist(total_steps$sum_steps, breaks = 20, 
+>>>>>>> 2b90d691ce4b3e93fe45c5ff999cfda317769307
      xlim = c(0, 25000), xlab = "Number of steps taken per day", 
      main = "Total number of steps taken per day")
 ```
@@ -82,27 +90,67 @@ hist(total_steps$sum_steps, breaks = 20,
 #### Mean total number of steps taken per day:
 
 ``` r
+<<<<<<< HEAD
+mean(total_steps$steps)
+```
+
+```
+## [1] 10766.19
+=======
 mean(total_steps$sum_steps)
 ```
 
 ```
 ## [1] 9354.23
+>>>>>>> 2b90d691ce4b3e93fe45c5ff999cfda317769307
 ```
 
 #### Median total number of steps taken per day:
 
 ``` r
+<<<<<<< HEAD
+median(total_steps$steps)
+```
+
+```
+## [1] 10765
+=======
 median(total_steps$sum_steps)
 ```
 
 ```
 ## [1] 10395
+>>>>>>> 2b90d691ce4b3e93fe45c5ff999cfda317769307
 ```
 
 ## What is the average daily activity pattern?
 
 
 ``` r
+<<<<<<< HEAD
+library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+``` r
+=======
+>>>>>>> 2b90d691ce4b3e93fe45c5ff999cfda317769307
 # Average steps taken by 5-minute interval, averaged across all days
 interval_steps <- data_activity %>%
   group_by(interval) %>%
@@ -205,11 +253,18 @@ median(summ_data_activity_imp$total_steps)
 ```
 
 #### Do these values differ from the estimates from the first part of the assignment? 
+<<<<<<< HEAD
+The estimates are very similar.
+
+#### What is the impact of imputing missing data on the estimates of the total daily number of steps?
+It helps to reduce bias from excluding cases with missing data. 
+=======
 The estimates from the first part of the assignment are lower.
 
 #### What is the impact of imputing missing data on the estimates of the total daily number of steps?
 It helps to reduce bias in the estimates.
 
+>>>>>>> 2b90d691ce4b3e93fe45c5ff999cfda317769307
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
@@ -255,7 +310,11 @@ ggplot(data = summ_data_week_activity,
   geom_line() + geom_point(size = 0) + theme_classic() + 
   labs(x = "5-minute interval", y = "Average number of steps taken", 
        title = "Average number of steps taken", colour = "Days") + 
+<<<<<<< HEAD
+  facet_wrap(~ week, ncol = 1) + theme(legend.position = "none")
+=======
   facet_grid(rows = vars(week)) + theme(legend.position = "none")
+>>>>>>> 2b90d691ce4b3e93fe45c5ff999cfda317769307
 ```
 
 ![](PA1_template_files/figure-html/plot-1.png)<!-- -->
