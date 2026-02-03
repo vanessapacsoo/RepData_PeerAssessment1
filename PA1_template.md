@@ -205,7 +205,7 @@ median(summ_data_activity_imp$total_steps)
 The estimates are very similar.
 
 #### What is the impact of imputing missing data on the estimates of the total daily number of steps?
-It helps to reduce bias from excluding cases with missing data. 
+It helps to reduce bias from excluding cases with missing data.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
